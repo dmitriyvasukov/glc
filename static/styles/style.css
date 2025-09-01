@@ -1,160 +1,314 @@
 *, *::before, *::after {
-    box-sizing: border-box;
-}
+            box-sizing: border-box;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #333333;
-    width: 100%;
-    align-items: center;
-    padding: 20px;
-}
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: #0c0c0c;
+            width: 100%;
+            align-items: center;
+            padding: 20px;
+        }
 
-.header-name {
-    color: aliceblue;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-}
+        .header-name {
+            color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+        }
 
-main {
-    display: flex;
-    flex-direction: column;
-}
+        main {
+            display: flex;
+            flex-direction: column;
+        }
 
-.preview {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    height: 800px;
-    padding: 50px; /* добавьте отступы по бокам */
-    background-color: #181818;
-}
+        .preview {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 800px;
+            padding: 50px;
+            background-color: #0c0c0c;
+        }
 
-.information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-    max-width: 50%; /* ограничиваем ширину */
-    padding-left: 70px;
-}
+        .information {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            max-width: 50%;
+            padding-left: 70px;
+        }
 
-.information > * {
-    margin: 15px 0;
-}
+        .information > * {
+            margin: 15px 0;
+        }
 
-.buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 20px; /* отступ между кнопками */
-    flex-wrap: wrap; /* перенос на маленьких экранах */
-    justify-content: center;
-}
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-.buttons button {
-    padding: 15px 30px;
-    font-size: 16px;
-    white-space: nowrap; /* предотвращает перенос текста */
-}
+        .buttons button {
+            padding: 15px 30px;
+            font-size: 16px;
+            white-space: nowrap;
+            background-color: aliceblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.preview-name {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 70px;
-    word-wrap: break-word; /* перенос длинных слов */
-    max-width: 100%; /* не превышает ширину родителя */
-    color: aliceblue;
-}
+        .preview-name {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 70px;
+            word-wrap: break-word;
+            max-width: 100%;
+            color: aliceblue;
+        }
 
-.preview-picture {
-    max-width: 50%;
-}
+        .preview-picture {
+            max-width: 50%;
+        }
 
-.preview-picture img {
-    max-width: 100%;
-    height: auto;
-}
+        .preview-picture img {
+            max-width: 100%;
+            height: auto;
+        }
 
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 768px) {
-    .preview {
-        flex-direction: column;
-        height: auto;
-        padding: 40px 20px;
-    }
-    
-    .information {
-        max-width: 100%;
-        margin-bottom: 40px;
-    }
-    
-    .preview-picture {
-        max-width: 100%;
-    }
-    
-    .preview-name {
-        font-size: 60px;
-    }
-    
-    .buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .buttons button {
-        width: 100%;
-    }
-}
+        /* Стили для меню options */
+        .options {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: #0c0c0c;
+            color: aliceblue;
+            font-weight: bold;
+            align-items: center;
+            padding: 10px 0;
+        }
 
+        .options > div {
+            margin: 0 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
 
+        .options > div:hover {
+            color: #c9c9c9;
+        }
 
+        .options > div.active {
+            border-bottom: 2px solid aliceblue;
+            color: #ffffff;
+        }
 
-.options {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #181818;
-    color: aliceblue;
-    font-weight: bold;
-    align-items: center;
-}
+        /* Контейнер для контента */
+        .content-section {
+            display: none;
+            background-color: #0c0c0c;
+            padding: 20px;
+            min-height: 500px;
+        }
 
-.options > * {
-    margin: 30px;
-}
+        .content-section.active {
+            display: block;
+        }
 
+        /* Стили для блока с одеждой */
+        .clothes-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #0c0c0c;
+            color:aliceblue;
+        }
 
+        .clothes-block > * {
+            margin: 20px;
+        }
 
-.clothes-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .clothes-text {
+            font-size: 50px;
+        }
 
-.clothes-block > * {
-    margin: 20px;
-}
+        .clothes-desc {
+            text-align: center;
+            color: #c9c9c9;
+        }
 
-.clothes-text {
-    font-size: 50px;
-}
+        .clothes {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
 
-.clothes-desc {
-    text-align: center;
-}
+        .clothes > * {
+            margin: 15px;
+        }
 
+        .item {
+            height:600px;
+            width: 600px;
+            text-align: center;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            justify-content: flex-end;
+            padding: 10px;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode:overlay;
+        }
 
+        .item > * {
+            margin: 10px;
+        }
 
+        .item-block-name {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .item .name {
+            font-size: 30px;
+        }
 
+        .item-block-desc {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item .buy-button button {
+            padding: 10px 30px;
+            font-size: 20px;
+            white-space: nowrap;
+            margin-left: 10px;
+            font-weight: 300;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color: aliceblue;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        /* Стили для архивного контента */
+        .archive-content {
+            color: aliceblue;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .archive-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .archive-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Стили для информационного контента */
+        .info-content {
+            color: aliceblue;
+            padding: 40px;
+        }
+
+        .info-content h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-content .info-section {
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #c9c9c9;
+        }
+
+        .info-content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            .preview {
+                flex-direction: column;
+                height: auto;
+                padding: 40px 20px;
+            }
+            
+            .information {
+                max-width: 100%;
+                margin-bottom: 40px;
+                padding-left: 0;
+            }
+            
+            .preview-picture {
+                max-width: 100%;
+            }
+            
+            .preview-name {
+                font-size: 60px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .buttons button {
+                width: 100%;
+            }
+            
+            .options {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .options > div {
+                margin: 5px 0;
+            }
+            
+            .item {
+                width: 100%;
+                height: 400px;
+            }
+        }
