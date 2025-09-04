@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - GULA COLLECTION{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <div class="product-image">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <div class="price">{{ product.price }} РУБ.</div>
+        <div class="description">
+            {{ product.description }}
+        </div>
+        <button class="buy-button">ADD TO CART</button>
+        <div class="product-meta">
+            <p>✓ Бесплатная доставка по России</p>
+            <p>✓ Возврат в течение 14 дней</p>
+            <p>✓ Ручная работа</p>
+        </div>
+    </div>
+</div>
+
+<div class="back-link">
+    <a href="/">← Назад к каталогу</a>
+</div>
+{% endblock %}

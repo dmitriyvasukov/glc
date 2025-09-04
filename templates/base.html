@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GULA COLLECTION{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="/"><img src="{{ url_for('static', path='img/logo.svg') }}" height="40px"></a></div>
+        <div class="header-name">GLC</div>
+        <div class="cart"><img src="{{ url_for('static', path='img/shopping-bag.png') }}" height="40px"></div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-line">---------------------------------------------------------------------------------------------------------</div>
+        <div>© 2024 «Gula Collection». Все права защищены.</div>
+        <div>При использовании материалов с сайта обязательно указание прямой ссылки на источник.</div>
+        <div class="footer-links">
+            <a href="#">PRIVACY POLICY •</a>
+            <a href="#">CONTACTS •</a>
+            <a href="#">APPLICATION FOR RETURN OF GOODS •</a>
+            <a href="#">REVIEWS •</a>
+            <a href="#">CONTRACT OFFER</a>
+        </div>
+        <div><img src="https://optim.tildacdn.com/tild3737-3533-4637-b839-663335363236/-/resize/560x/-/format/webp/_.png.webp"></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const optionItems = document.querySelectorAll('.option-item');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            optionItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    optionItems.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(`${target}-content`)?.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -312,3 +312,74 @@
                 height: 400px;
             }
         }
+
+
+
+
+
+.contacts-block {
+    background-color:#0c0c0c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gula {
+    font-size: 45px;
+    color: aliceblue;
+    font-weight: bold;
+    background-image: url("https://static.tildacdn.com/tild3062-3831-4637-b063-653164336133/_.svg");
+    display: block;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contacts {
+        padding: 10px 80px;
+        font-size: 16px;
+        white-space: nowrap;
+        background-color: #141414;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #d3d1d3;
+        margin-top: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+}
+
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0c0c;
+    color: #d3d1d3;
+}
+
+footer > * {
+    margin: 5px;
+}
+
+
+footer a {
+    color:#d3d1d3;
+}
+
+
+footer .footer-links {
+    margin: 10px;
+}
+
+footer img {
+    width: 200px;
+}
+
+

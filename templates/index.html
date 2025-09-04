@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="preview">
+    <div class="information">
+        <div class="preview-name">GULA <br> COLLECTION</div>
+        <div class="buttons">
+            <button>LOBOTOMY</button>
+            <button>SILENCE POEM</button>
+        </div>
+    </div>
+    <div class="preview-picture"><img src="{{ url_for('static', path='img/photo.png') }}" height="800px"></div>
+</div>
+
+<div class="options">
+    <div class="option-item active" data-target="overview">Overview</div>
+    <div class="option-item" data-target="archive">Archive</div>
+    <div class="option-item" data-target="information">Information</div>
+</div>
+
+<!-- Контент для Overview -->
+<div id="overview-content" class="content-section active">
+    <div class="clothes-block">
+        <div class="clothes-text">Clothes</div>
+        <div class="clothes-desc">And when he fell out, his stomach was torn open,
+        and his entrails fell out of him.<br> No one could tell whether it was entrails or the human essence,<br> yet gluttony remains undianyed in the soul of every mortal.</div>
+        <div class="clothes">
+            {% for product in products %}
+            <div class="item" style="background-image: url('{{ product.image_url }}');">
+                <div class="item-block-name">
+                    <div class="name">{{ product.name }}</div>
+                    <div class="price">{{ product.price }} РУБ.</div>
+                </div>
+                <div class="item-block-desc">
+                    <div class="item-desc">{{ product.description[:100] }}{% if product.description|length > 100 %}...{% endif %}</div>
+                    <div class="buy-button">
+                        <a href="/product/{{ product.id }}"><button>VIEW DETAILS</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="archive-content" class="content-section">
+    <div class="archive-content">
+        <h2>Archive</h2>
+        <p>Здесь будет архив коллекций</p>
+    </div>
+</div>
+
+<div id="information-content" class="content-section">
+    <div class="information-content">
+        <h2>Information</h2>
+        <p>Информация о бренде и условиях покупки</p>
+    </div>
+</div>
+
+<div class="contacts-block">
+    <div class="gula">GULA</div>
+    <button class="contacts">Contacts</button>
+</div>
+{% endblock %}
